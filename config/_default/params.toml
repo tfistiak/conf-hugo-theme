@@ -8,10 +8,18 @@ logo_darkmode = "images/logo-darkmode.png"
 # Note: logo_width is not work with .svg file
 logo_width = "120px"
 logo_height = "26px"
+
+# about conf
+about_conf = "We help local companies and services enter the market, and well-known brands expand an audience."
+# contact info
+address = "27 Division St, New York, NY 10002, USA"
+number = "+1 800 123 654 987"
+gmail = "info@designerevent.com"
+
 # if logo_webp set false, will not generate WEBP version of logo | default is true
 logo_webp = true
 # logo text will only show when logo is missing.
-logo_text = "Hugoplate"
+logo_text = "Conf"
 # navbar fixed to top
 navbar_fixed = true
 # theme-mode

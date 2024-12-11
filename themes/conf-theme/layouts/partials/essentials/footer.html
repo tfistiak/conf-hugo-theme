@@ -1,37 +1,24 @@
-<footer class="bg-theme-light dark:bg-darkmode-theme-light">
-  <div class="container">
-    <div class="row items-center py-10">
-      <div class="lg:col-3 mb-8 text-center lg:mb-0 lg:text-left">
+<footer>
+  <div class="container border-t border-t-border dark:border-darkmode-border">
+    <div class="row py-16">
+      {{/* about company */}}
+      <div
+        class="lg:col-4 border-r border-r-border dark:border-darkmode-border pr-32">
         <!-- navbar brand/logo -->
-        <a
-          class="navbar-brand inline-block"
-          href="{{ site.Home.RelPermalink }}">
+        <a class="inline-block mb-9" href="{{ site.Home.RelPermalink }}">
           {{ partial "logo" }}
         </a>
-      </div>
-      <div class="lg:col-6 mb-8 text-center lg:mb-0">
-        <ul>
-          {{ range site.Menus.footer }}
-            <li class="m-3 inline-block">
-              <a
-                {{ if findRE `^http` .URL }}
-                  target="_blank" rel="noopener"
-                {{ end }}
-                href="{{ if findRE `^#` .URL }}
-                  {{ if not $.IsHome }}
-                    {{ site.Home.RelPermalink }}
-                  {{ end }}{{ .URL }}
-                {{ else }}
-                  {{ .URL | relLangURL }}
-                {{ end }}"
-                >{{ .Name }}</a
-              >
-            </li>
-          {{ end }}
-        </ul>
-      </div>
-      <div class="lg:col-3 mb-8 text-center lg:mb-0 lg:mt-0 lg:text-right">
-        <ul class="social-icons">
+        <p
+          class="mb-14 text-[#444444] dark:text-darkmode-text text-lg leading-7">
+          {{ site.Params.about_conf }}
+        </p>
+        <a
+          class="mb-16 inline-block uppercase border-b-2 border-b-border dark:border-darkmode-border text-sm"
+          href="/contact"
+          >Let’s contact us</a
+        >
+
+        <ul class="social-icons-footer">
           {{ range site.Data.social.main }}
             <li>
               <a
@@ -45,11 +32,118 @@
           {{ end }}
         </ul>
       </div>
+
+      {{/* Company links */}}
+      <div class="lg:col-8 pl-16 flex flex-col justify-center">
+        <div class="row justify-between">
+          {{/* col-1 */}}
+          <div class="lg:col-4">
+            <h2 class="mb-8 text-xl font-normal leading-7 uppercase">
+              Quick Links
+            </h2>
+            <ul class="flex flex-col uppercase">
+              {{ range site.Menus.footer_menu_quick_links }}
+                <li class="my-3 inline-block font-normal">
+                  <a
+                    {{ if findRE `^http` .URL }}
+                      target="_blank" rel="noopener"
+                    {{ end }}
+                    href="{{ if findRE `^#` .URL }}
+                      {{ if not $.IsHome }}
+                        {{ site.Home.RelPermalink }}
+                      {{ end }}{{ .URL }}
+                    {{ else }}
+                      {{ .URL | relLangURL }}
+                    {{ end }}"
+                    >{{ .Name }}</a
+                  >
+                </li>
+              {{ end }}
+            </ul>
+          </div>
+          {{/* col-2 */}}
+          <div class="lg:col-4 ">
+            <h2 class="mb-8 text-xl font-normal leading-7 uppercase">
+              Contact Info
+            </h2>
+            <ul class="flex flex-col uppercase">
+              <li class="my-3 inline-block font-normal lg:pr-24">
+                {{ site.Params.address }}
+              </li>
+              <li class="my-3 inline-block font-normal">
+                {{ site.Params.number }}
+              </li>
+              <li class="my-3 inline-block font-normal">
+                {{ site.Params.gmail }}
+              </li>
+            </ul>
+          </div>
+
+          {{/* col-3 */}}
+          <div class="lg:col-4">
+            <h2 class="mb-8 text-xl font-normal leading-7 uppercase">
+              Get started
+            </h2>
+            <ul class="flex flex-col uppercase">
+              {{ range site.Menus.footer_menu_get_started }}
+                <li class="my-3 inline-block font-normal">
+                  <a
+                    {{ if findRE `^http` .URL }}
+                      target="_blank" rel="noopener"
+                    {{ end }}
+                    href="{{ if findRE `^#` .URL }}
+                      {{ if not $.IsHome }}
+                        {{ site.Home.RelPermalink }}
+                      {{ end }}{{ .URL }}
+                    {{ else }}
+                      {{ .URL | relLangURL }}
+                    {{ end }}"
+                    >{{ .Name }}</a
+                  >
+                </li>
+              {{ end }}
+            </ul>
+          </div>
+        </div>
+        {{/*  footer action button  */}}
+        <div class="footer-action-btn mt-16">
+          <a class="w-full flex items-center justify-center gap-x-2" href="/events"
+            ><span>Register Now</span>
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 28 28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_1_1210)">
+                <path
+                  d="M7 21L21 7"
+                  stroke="#222222"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path
+                  d="M9.625 7H21V18.375"
+                  stroke="#222222"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </g>
+              <defs>
+                <clipPath id="clip0_1_1210">
+                  <rect width="28" height="28" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 
   {{/* Copyright */}}
-  <div class="container border-t border-t-border dark:border-darkmode-border py-7">
+  <div
+    class="container border-t border-t-border dark:border-darkmode-border pt-16 pb-12 uppercase">
     <div class="flex justify-between items-center">
       <p>
         {{ site.Params.copyright | markdownify }}

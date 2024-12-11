@@ -13,3 +13,6 @@
 .btn-outline-primary {
   @apply border-dark text-dark hover:bg-dark dark:hover:text-dark bg-transparent hover:text-white dark:border-darkmode-primary dark:text-white dark:hover:bg-darkmode-primary;
 }
+.footer-action-btn{
+  @apply border border-border rounded-full py-4 uppercase text-center text-xl leading-8;
+}

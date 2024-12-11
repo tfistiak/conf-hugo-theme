@@ -12,7 +12,7 @@ main {
 
 // container
 .container {
-  @apply mx-auto px-4 2xl:max-w-[1320px];
+  @apply mx-auto px-4 2xl:max-w-[1620px];
 }
 
 // form style
@@ -33,6 +33,26 @@ main {
       @apply  dark:text-white flex h-6 w-6 items-center justify-center rounded text-center leading-9 text-dark;
       svg {
         @apply h-5 w-5;
+      }
+    }
+  }
+}
+// social icons footer
+.social-icons-footer {
+  @apply space-x-4;
+  li {
+    @apply inline-block transition-all duration-500;
+    :hover {
+      @apply bg-primary dark:bg-darkmode-primary;
+      a{
+        @apply text-white;
+      }
+    }
+    a {
+      @apply  dark:text-white flex h-12 w-12 items-center justify-center rounded-full text-center leading-9 text-dark border border-border dark:border-darkmode-border border-opacity-20;
+     
+      svg {
+        @apply h-6 w-6;
       }
     }
   }

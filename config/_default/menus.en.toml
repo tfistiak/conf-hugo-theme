@@ -43,17 +43,54 @@ url = "/get-tickets"
 weight = 5
 
 # footer menu
-[[footer]]
-name = "Get Tickets"
-url = "/get-tickets"
+
+[[footer_menu_quick_links]]
+name = "Home"
+url = "/"
 weight = 1
 
-[[footer]]
-name = "Elements"
-url = "/elements"
+[[footer_menu_quick_links]]
+name = "About The Event"
+url = "/events"
 weight = 2
 
-[[footer]]
-name = "Privacy Policy"
-url = "/privacy-policy"
+[[footer_menu_quick_links]]
+name = "Speakers"
+url = "/speakers"
 weight = 3
+
+[[footer_menu_quick_links]]
+name = "Workshop Sessions"
+url = "/events"
+weight = 4
+
+[[footer_menu_quick_links]]
+name = "Sponsor Partners"
+url = "/our-sponsers"
+weight = 5
+
+
+[[footer_menu_get_started]]
+name = "Register Now"
+url = "/events"
+weight = 1
+
+[[footer_menu_get_started]]
+name = "Get Tickets"
+url = "/get-tickets"
+weight = 2
+
+[[footer_menu_get_started]]
+name = "Our Gallery"
+url = "/our-gallery"
+weight = 3
+
+[[footer_menu_get_started]]
+name = "Stay in the loop"
+url = "#"
+weight = 4
+
+[[footer_menu_get_started]]
+name = "Terms of service"
+url = "/terms-of-service"
+weight = 5
