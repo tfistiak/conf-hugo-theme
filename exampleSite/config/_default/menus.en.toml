@@ -33,11 +33,6 @@ name = "Our Sponsers"
 url = "/our-sponsers"
 
 [[main]]
-parent = "Pages"
-name = "404 Page"
-url = "/404"
-
-[[main]]
 weight = 4
 name = "Speakers"
 url = "/speakers"
