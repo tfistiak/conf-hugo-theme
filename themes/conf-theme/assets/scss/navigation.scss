@@ -17,7 +17,7 @@ input#nav-toggle:checked ~ #nav-menu {
 
 // navbar items
 .navbar {
-  @apply relative flex flex-wrap items-center border-b border-b-border pb-6;
+  @apply relative flex flex-wrap items-center border-b border-b-border pb-6 dark:border-darkmode-border;
 }
 
 .navbar-brand {
@@ -60,7 +60,7 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 
 .nav-dropdown-link {
-  @apply text-dark hover:text-primary dark:text-darkmode-text dark:hover:text-darkmode-primary block py-1 font-semibold transition;
+  @apply text-dark hover:text-primary dark:text-darkmode-text dark:hover:text-darkmode-primary block py-1 font-normal transition;
 }
 
 //theme-switcher

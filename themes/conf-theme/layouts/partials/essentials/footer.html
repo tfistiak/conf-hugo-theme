@@ -47,11 +47,15 @@
       </div>
     </div>
   </div>
-  <div class="border-border dark:border-darkmode-border border-t py-7">
-    <div class="text-light dark:text-darkmode-light container text-center">
+
+  {{/* Copyright */}}
+  <div class="container border-t border-t-border dark:border-darkmode-border py-7">
+    <div class="flex justify-between items-center">
       <p>
         {{ site.Params.copyright | markdownify }}
       </p>
+
+      <a href="#">Terms of Service | Privacy Policy</a>
     </div>
   </div>
 </footer>
