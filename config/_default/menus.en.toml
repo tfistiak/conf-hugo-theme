@@ -6,18 +6,14 @@ name = "Home"
 url = "/"
 weight = 1
 
+
 [[main]]
-name = "Get Tickets"
-url = "/get-tickets"
+name = "Events"
+url = "/events"
 weight = 2
 
 [[main]]
-name = "Elements"
-url = "/elements"
 weight = 3
-
-[[main]]
-weight = 4
 name = "Pages"
 
 [[main]]
@@ -30,21 +26,26 @@ parent = "Pages"
 name = "Contact"
 url = "/contact"
 
-[[main]]
-parent = "Pages"
-name = "Speakers"
-url = "/speakers"
 
 [[main]]
 parent = "Pages"
-name = "Categories"
-url = "/categories"
+name = "Our Sponsers"
+url = "/our-sponsers"
 
 [[main]]
 parent = "Pages"
 name = "404 Page"
 url = "/404"
 
+[[main]]
+weight = 4
+name = "Speakers"
+url = "/speakers"
+
+[[main]]
+name = "Get Tickets"
+url = "/get-tickets"
+weight = 5
 
 # footer menu
 [[footer]]

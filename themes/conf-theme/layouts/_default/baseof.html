@@ -35,17 +35,18 @@
 
 
     <!-- header (don't cache it) -->
-    {{ partial "essentials/header.html" . }}
-    {{ partial "search-modal.html" (dict "Context" . ) }}
+    <main class="p-7">
+      <div class="border border-border dark:border-darkmode-border">
+        <!-- header -->
+        {{ partial "essentials/header.html" . }}
 
+        <!-- main -->
+        {{ block "main" . }}{{ end }}
 
-    <main>
-      {{ block "main" . }}{{ end }}
+        <!-- footer -->
+        {{ partial "essentials/footer.html" . }}
+      </div>
     </main>
-
-    <!-- footer -->
-    {{ partial "essentials/footer.html" . }}
-
 
     <!-- script (always cache it) -->
     {{ partialCached "essentials/script.html" . }}
