@@ -29,7 +29,7 @@
     <!-- main navbar -->
     <ul
       id="nav-menu"
-      class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8">
+      class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8 lg:ml-16">
       {{ $currentPage := . }}
       {{ range site.Menus.main }}
         {{ $menuURL := .URL | absLangURL }}
@@ -106,23 +106,22 @@
       {{ end }}
     </ul>
 
-    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
-      {{ with site.Params.search }}
-        {{ if .enable }}
-          <button
-            aria-label="search"
-            {{ if and (not site.Params.navigation_button.enable) (not site.Params.theme_switcher)}}
-            class="border-border text-dark hover:text-primary dark:border-darkmode-border mr-5 inline-block border-r lg:border-r-0 pr-5 lg:pr-0 text-xl dark:text-white dark:hover:text-darkmode-primary"
-            {{ else }}
-            class="border-border text-dark hover:text-primary dark:border-darkmode-border mr-5 inline-block border-r pr-5 text-xl dark:text-white dark:hover:text-darkmode-primary"
-            {{ end }}
-            data-target="search-modal">
-            <i class="fa-solid fa-search"></i>
-          </button>
+    <!-- socila icon, theme switcher, register button -->
+    <div class="order-1 ml-auto flex items-center md:order-2 ">
+      <ul class="social-icons">
+        {{ range site.Data.social.main }}
+          <li>
+            <a
+              target="_blank"
+              aria-label="{{ .name }}"
+              rel="nofollow noopener"
+              href="{{ .link | safeURL }}">
+              <i class="{{ .icon }}"></i>
+            </a>
+          </li>
         {{ end }}
-      {{ end }}
+      </ul>
 
-      {{ partial "components/language-switcher" (dict "Context" . "Class" "mr-5 pl-2 py-1 dark:bg-darkmode-theme-light rounded") }}
       {{ partial "components/theme-switcher" (dict "Class" "mr-5") }}
 
 
@@ -130,10 +129,13 @@
       {{ if site.Params.navigation_button.enable }}
         <a
           href="{{ site.Params.navigation_button.link | relLangURL }}"
-          class="btn btn-outline-primary btn-sm hidden lg:inline-block">
-          {{ site.Params.navigation_button.label }}
+          class="btn btn-sm hidden lg:flex lg:items-center lg:space-x-2">
+         <span class="uppercase font-normal"> {{ site.Params.navigation_button.label }}</span>
+          <span class="navigation-button-icon"><i class="fa fa-arrow-right text-xs"></i></span>
         </a>
       {{ end }}
+
     </div>
+    
   </nav>
 </header>

@@ -12,12 +12,12 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 
 .header {
-  @apply bg-body dark:bg-darkmode-body py-6;
+  @apply bg-body dark:bg-darkmode-body py-10;
 }
 
 // navbar items
 .navbar {
-  @apply relative flex flex-wrap items-center justify-between;
+  @apply relative flex flex-wrap items-center border-b border-b-border pb-6;
 }
 
 .navbar-brand {
@@ -36,7 +36,7 @@ input#nav-toggle:checked ~ #nav-menu {
 // }
 
 .nav-link {
-  @apply text-dark hover:text-primary dark:text-darkmode-dark dark:hover:text-darkmode-primary block p-3 cursor-pointer font-semibold transition lg:px-2 lg:py-3;
+  @apply  hover:text-primary dark:text-darkmode-dark dark:hover:text-darkmode-primary block p-3 cursor-pointer font-normal transition lg:px-2 lg:py-3;
 }
 
 .nav-dropdown {
@@ -68,7 +68,7 @@ input#nav-toggle:checked ~ #nav-menu {
   @apply inline-flex;
 
   label {
-    @apply bg-border relative inline-block h-4 w-6 cursor-pointer rounded-2xl lg:w-10;
+    @apply bg-border relative inline-block h-4 w-6 cursor-pointer rounded-2xl;
   }
 
   input {
@@ -78,10 +78,9 @@ input#nav-toggle:checked ~ #nav-menu {
   span {
     @apply bg-dark absolute -top-1 left-0 flex h-6 w-6 items-center justify-center rounded-full transition-all duration-300 dark:bg-white;
   }
+}
 
-  input:checked + label {
-    span {
-      @apply lg:left-4;
-    }
-  }
+// nav btton icon
+.navigation-button-icon {
+  @apply bg-darkmode-theme-light dark:bg-darkmode-theme-dark h-6 w-6 rounded-full flex items-center justify-center text-white dark:text-darkmode-light;
 }
