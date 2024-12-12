@@ -1,9 +1,10 @@
 {{ define "main" }}
 <!-- Banner -->
+
 {{ with .Params.banner }}
 <section class="section pt-4">
   <div class="container">
-    {{/* Top Hero start */}}
+    <!-- Hero title start  -->
     <div class="row justify-center">
       {{/* Title section */}}
       <div class="col-12 text-center">
@@ -71,14 +72,14 @@
       </div>
       {{/* Tickets section end */}}
     </div>
-    {{/* Top Hero end */}}
+    <!--  Hero Title end  -->
 
-    <!-- Bottom Hero start -->
+    <!--  Hero banner start -->
     <div
       class="row pl-0 mt-20 border-t border-t-border dark:border-darkmode-border flex-col xl:flex-row"
     >
       <!-- left section -->
-      <div class="col-12 xl:col-6 pt-24">
+      <div class="col-12 xl:col-6 pt-14">
         <div class="pr-0 xl:pr-16">
           <h2
             class="text-7xl md:text-[80px] 2xl:text-[110px] uppercase leading-[80px] md:leading-[110px] font-[500]"
@@ -109,7 +110,7 @@
             </p>
           </div>
         </div>
-        <div class="flex mt-14 gap-4 text-lg">
+        <div class="flex mt-8 gap-4 text-lg">
           <p class="font-light"><b>Date:</b> {{ .date | markdownify }}</p>
           <p class="font-light">
             <b class="font-semibold">Venue:</b> {{ .venue | markdownify }}
@@ -124,7 +125,124 @@
         "520x" "DisplayLG" "425x" "DisplayMD" "360x" "Class" "mx-auto") }}
       </div>
     </div>
-    <!-- Bottom Hero end -->
+    <!--  Hero banner end -->
+
+    <!--  Banner features Start -->
+    <div class="row px-0 border-y border-y-border dark:border-darkmode-border">
+      <!-- Missions & Visions-->
+      {{with .feature_mission}}
+      <div class="col-12 xl:col-6 py-6 flex flex-col md:flex-row border-b border-b-border dark:border-darkmode-border md:border-none">
+        {{ partial "image" (dict "Src" .image "Alt" "missions image" "Class" "mx-auto") }}
+        <div class="py-5 px-8">
+          {{/* svg */}}
+          <span class="mb-20 block">
+            <svg
+              width="42"
+              height="44"
+              viewBox="0 0 42 44"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M9.26256e-07 0.5H21L21 21.892H42C42 24.7307 41.4567 27.5417 40.4012 30.1642C39.3457 32.7867 37.7986 35.1694 35.8484 37.1761C33.8982 39.1828 31.5831 40.7741 29.0353 41.8592C26.4876 42.9443 23.7571 43.5018 21 43.5L21 22.108C20.9996 22.108 20.9992 22.108 20.9987 22.108C20.9381 27.7653 18.729 33.1764 14.8404 37.1775C10.9024 41.2295 5.56439 43.5037 0 43.5V21.892H18.0259C16.2915 21.6375 14.5909 21.1598 12.9647 20.4672C10.4169 19.3821 8.10179 17.7908 6.15158 15.7841C4.20137 13.7774 2.65431 11.3948 1.59879 8.77226C0.543279 6.14974 3.51713e-07 3.33878 9.26256e-07 0.5Z"
+                fill="#222222"
+                class="dark:fill-white"
+              />
+            </svg>
+          </span>
+          <h3 class="text-2xl font-normal uppercase mb-6">{{.title}}</h3>
+          <p class="font-light uppercase text-sm leading-6">{{.description}}</p>
+        </div>
+      </div>
+      {{end}}
+
+      <!-- others-->
+      <div class="col-12 xl:col-6">
+        <div class="row md:h-full">
+          <!-- speakers -->
+          {{with .feature_speaker}}
+          <div
+            class="col-12 md:col-6 md:border-r md:border-r-border xl:border-x xl:border-x-border  dark:border-darkmode-border h-full flex flex-col relative"
+          >
+            <!-- arrow -->
+            <span class="absolute top-4 right-4">
+              <svg
+                width="50"
+                height="50"
+                viewBox="0 0 50 50"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  width="49.8373"
+                  height="3.324"
+                  transform="matrix(1 0 0 -1 0 3.46411)"
+                  fill="#DBDBDB"
+                />
+                <rect
+                  width="3.32249"
+                  height="49.8599"
+                  transform="matrix(1 0 0 -1 46.5156 50)"
+                  fill="#DBDBDB"
+                />
+                <rect
+                  width="3.32324"
+                  height="66.4648"
+                  transform="matrix(0.706946 0.707267 0.706946 -0.707267 0.664062 47.0083)"
+                  fill="#DBDBDB"
+                />
+              </svg>
+            </span>
+            <div class="flex mt-36">
+              {{ $total := len .speaker_images }} {{ range $index, $img :=
+              .speaker_images }}
+              <span
+                class="-mr-4 relative"
+                style="z-index: {{ sub $total $index }};"
+              >
+                {{ partial "image" (dict "Src" $img.src "Alt" "user image") }}
+              </span>
+              {{ end }}
+            </div>
+            <h3 class="text-3xl uppercase font-thin mt-9">{{.title}}</h3>
+            <p class="font-thin text-sm uppercase mt-3">{{.description}}</p>
+          </div>
+          {{end}}
+
+          <!-- highlight -->
+          {{ with .feature_highlight }}
+          <div class="col-12 md:col-6 p-8">
+            <span >
+              <svg
+                width="48"
+                height="24"
+                viewBox="0 0 48 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="12" cy="12" r="12" fill="#FD5E09" />
+                <circle cx="36" cy="12" r="12" fill="white" />
+              </svg>
+            </span>
+            <h3 class="text-3xl font-thin uppercase mt-6">{{ .title }}</h3>
+            <div class="flex mt-20 gap-6">
+              <div>
+                <span class="uppercase text-dark-gray">{{.tag}}</span>
+                <p class="uppercase text-dark-gray font-thin">{{.description}}</p>
+              </div>
+              <div class="bg-dark text-theme-light dark:bg-primary rounded-full p-6 flex flex-col justify-center items-center ">
+                <span class="text-xs uppercase">Joined</span>
+                <b class="text-2xl uppercase font-semibold">{{.joined}}</b>
+              </div>
+            </div>
+          </div>
+          {{end}}
+        </div>
+      </div>
+    </div>
+    <!--  Banner features End -->
   </div>
 </section>
 {{ end }}
