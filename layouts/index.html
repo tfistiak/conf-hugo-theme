@@ -3,12 +3,17 @@
 {{ with .Params.banner }}
 <section class="section pt-4">
   <div class="container">
+    {{/* Top Hero start */}}
     <div class="row justify-center">
+      {{/* Title section */}}
       <div class="col-12 text-center">
         <h1 class="banner-title">{{ .title | markdownify }}</h1>
       </div>
+      {{/* Tickets section start */}}
       <div class="col-12">
-        <div class="flex justify-between items-center bg-theme-dark py-5 px-3 gap-2 flex-col md:flex-row">
+        <div
+          class="flex justify-between items-center bg-theme-dark py-5 px-3 gap-2 flex-col md:flex-row"
+        >
           <div class="flex gap-1">
             <span>
               <svg
@@ -28,7 +33,11 @@
                 />
               </svg>
             </span>
-            <span class="text-gold uppercase font-semibold text-lg mx-1 whitespace-nowrap"> tickets available </span>
+            <span
+              class="text-gold uppercase font-semibold text-lg mx-1 whitespace-nowrap"
+            >
+              tickets available
+            </span>
             <span>
               <svg
                 width="45"
@@ -49,22 +58,73 @@
             </span>
           </div>
 
-          <div class="text-white flex items-center gap-3 flex-wrap justify-center md:justify-stretch">
+          <div
+            class="text-white flex items-center gap-3 flex-wrap justify-center md:justify-stretch"
+          >
             {{ range .tickets }}
-              <p class="text-lg font-light uppercase">{{ .name | markdownify | safeHTML }}</p>
+            <p class="text-lg font-light uppercase">
+              {{ .name | markdownify | safeHTML }}
+            </p>
             {{ end }}
           </div>
-
         </div>
       </div>
-
-      {{/*
-      <div class="col-12">
-        {{ partial "image" (dict "Src" .image "Alt" "Banner image" "Loading"
-        "eager" "Class" "mx-auto lg:!max-w-[800px]" "DisplayXL" "800x" ) }}
-      </div>
-      */}}
+      {{/* Tickets section end */}}
     </div>
+    {{/* Top Hero end */}}
+
+    <!-- Bottom Hero start -->
+    <div
+      class="row pl-0 mt-20 border-t border-t-border dark:border-darkmode-border flex-col xl:flex-row"
+    >
+      <!-- left section -->
+      <div class="col-12 xl:col-6 pt-24">
+        <div class="pr-0 xl:pr-16">
+          <h2
+            class="text-7xl md:text-[80px] 2xl:text-[110px] uppercase leading-[80px] md:leading-[110px] font-[500]"
+          >
+            {{ .sub_title | markdownify }}
+          </h2>
+          <div class="flex items-center">
+            <div class="flex relative">
+              {{ $total := len .banner_speaker_img }} {{ range $index, $img :=
+              .banner_speaker_img }}
+              <span
+                class="-mr-4 relative"
+                style="z-index: {{ sub $total $index }};"
+              >
+                {{ partial "image" (dict "Src" $img.src "Alt" "user image") }}
+              </span>
+              {{ end }}
+              <span class="relative" style="z-index: 0">
+                {{ partial "image" (dict "Src" "images/banner_plus_btn.png"
+                "Alt" "plus icon image") }}
+              </span>
+            </div>
+
+            <p
+              class="ml-4 text-7xl md:text-[80px] 2xl:text-[110px] uppercase leading-[80px] md:leading-[110px] font-[500]"
+            >
+              CLOUD
+            </p>
+          </div>
+        </div>
+        <div class="flex mt-14 gap-4 text-lg">
+          <p class="font-light"><b>Date:</b> {{ .date | markdownify }}</p>
+          <p class="font-light">
+            <b class="font-semibold">Venue:</b> {{ .venue | markdownify }}
+          </p>
+        </div>
+      </div>
+      <!-- right section -->
+      <div
+        class="col-12 xl:col-6 px-0 mt-16 xl:mt-0 justify-center items-center"
+      >
+        {{ partial "image" (dict "Src" .image "Alt" "banner image" "DisplayXL"
+        "520x" "DisplayLG" "425x" "DisplayMD" "360x" "Class" "mx-auto") }}
+      </div>
+    </div>
+    <!-- Bottom Hero end -->
   </div>
 </section>
 {{ end }}
