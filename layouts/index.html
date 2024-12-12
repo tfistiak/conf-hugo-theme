@@ -131,8 +131,11 @@
     <div class="row px-0 border-y border-y-border dark:border-darkmode-border">
       <!-- Missions & Visions-->
       {{with .feature_mission}}
-      <div class="col-12 xl:col-6 py-6 flex flex-col md:flex-row border-b border-b-border dark:border-darkmode-border md:border-none">
-        {{ partial "image" (dict "Src" .image "Alt" "missions image" "Class" "mx-auto") }}
+      <div
+        class="col-12 xl:col-6 py-6 flex flex-col md:flex-row border-b border-b-border dark:border-darkmode-border md:border-none"
+      >
+        {{ partial "image" (dict "Src" .image "Alt" "missions image" "Class"
+        "mx-auto") }}
         <div class="py-5 px-8">
           {{/* svg */}}
           <span class="mb-20 block">
@@ -164,7 +167,7 @@
           <!-- speakers -->
           {{with .feature_speaker}}
           <div
-            class="col-12 md:col-6 md:border-r md:border-r-border xl:border-x xl:border-x-border  dark:border-darkmode-border h-full flex flex-col relative"
+            class="col-12 md:col-6 md:border-r md:border-r-border xl:border-x xl:border-x-border dark:border-darkmode-border h-full flex flex-col relative"
           >
             <!-- arrow -->
             <span class="absolute top-4 right-4">
@@ -214,7 +217,7 @@
           <!-- highlight -->
           {{ with .feature_highlight }}
           <div class="col-12 md:col-6 p-8">
-            <span >
+            <span>
               <svg
                 width="48"
                 height="24"
@@ -230,9 +233,13 @@
             <div class="flex mt-20 gap-6">
               <div>
                 <span class="uppercase text-dark-gray">{{.tag}}</span>
-                <p class="uppercase text-dark-gray font-thin">{{.description}}</p>
+                <p class="uppercase text-dark-gray font-thin">
+                  {{.description}}
+                </p>
               </div>
-              <div class="bg-dark text-theme-light dark:bg-primary rounded-full p-6 flex flex-col justify-center items-center ">
+              <div
+                class="bg-dark text-theme-light dark:bg-primary rounded-full p-6 flex flex-col justify-center items-center"
+              >
                 <span class="text-xs uppercase">Joined</span>
                 <b class="text-2xl uppercase font-semibold">{{.joined}}</b>
               </div>
@@ -249,40 +256,14 @@
 <!-- /Banner -->
 
 <!-- Features -->
-{{ range $i, $e:= .Params.features }}
-<section class="section-sm {{ if (modBool $i 2) }}bg-gradient{{ end }}">
+{{ with.Params.features }}
+<section >
   <div class="container">
-    <div class="row items-center justify-between">
-      <div
-        class="mb:md-0 {{ if not (modBool $i 2) }}
-              md:order-2
-            {{ end }} md:col-5 mb-6"
-      >
-        {{ partial "image" (dict "Src" .image "Alt" "feature image" "DisplayXL"
-        "520x" "DisplayLG" "425x" "DisplayMD" "360x") }}
-      </div>
-      <div
-        class="{{ if not (modBool $i 2) }}
-              md:order-1
-            {{ end }} md:col-7 lg:col-6"
-      >
-        <h2 class="mb-4">{{ .title | markdownify }}</h2>
-        <p class="mb-8 text-lg">{{ .content | markdownify }}</p>
-        <ul>
-          {{ range .bulletpoints }}
-          <li class="relative mb-4 pl-6">
-            <i class="fa fa-check absolute left-0 top-1.5"></i>
-            {{ . | markdownify }}
-          </li>
-          {{ end }}
-        </ul>
-        {{ with .button }} {{ if .enable }}
-        <a class="btn btn-primary mt-6" href="{{ .link | absURL }}">
-          {{ .label }}
-          <i class="fa fa-arrow-right pl-2"></i>
-        </a>
-        {{ end }} {{ end }}
-      </div>
+    <div>
+      <h1>{{ .title }}</h1>
+      <p>
+        {{.description}}
+      </p>
     </div>
   </div>
 </section>
