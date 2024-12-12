@@ -1,13 +1,11 @@
 ---
 # Banner
 banner:
-  title: "The Ultimate Starter Template You Need To Start Your Hugo Project"
-  content: "Hugoplate is a free starter template built with Hugo and TailwindCSS, providing everything you need to jumpstart your Hugo project and save valuable time."
-  image: "/images/banner.png"
-  button:
-    enable: true
-    label: "Get Started For Free"
-    link: "https://github.com/zeon-studio/hugoplate"
+  title: 'C<span class="title-star"><svg width="187" height="189" viewBox="0 0 187 189" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M71.0391 189L75.1406 125.508L21.9844 161.109L0 122.391L57.2578 94.5L0 66.6094L21.9844 27.8906L75.1406 63.4922L71.0391 0H115.172L110.906 63.4922L164.062 27.8906L186.047 66.6094L128.953 94.5L186.047 122.391L164.062 161.109L110.906 125.508L115.172 189H71.0391Z" fill="#FD5E09"/></svg></span>NF-2024'
+  sub_title: "step into THE design"
+  date: "10-18 Dec, 24"
+  venue: "124th Collado, Madrid, Spain"
+  
 
 # Features
 features:

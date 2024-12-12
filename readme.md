@@ -70,10 +70,15 @@ To start using this theme, ensure you have the following installed:
 
 3. **Start Development Server**:
    ```bash
-   npm run dev
+   npm run project-setup
    ```
 
 4. **Build the Site**:
+   ```bash
+   npm run dev
+   ```
+
+5. **Build the Site**:
    ```bash
    npm run build
    ```
