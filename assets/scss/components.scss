@@ -114,6 +114,31 @@ main {
     }
   }
 }
+// speaker card
+.speaker-card {
+  @apply flex flex-col ;
+  .speaker-card-content{
+    @apply flex flex-col mt-4;
+    h3{
+      @apply text-2xl mb-1;
+    }
+    
+  }
+  .other{
+    @apply flex justify-between ;
+    p{
+      @apply  font-light text-dark;}
+  }
+  .icons{
+    @apply flex space-x-4;
+    a{
+      @apply bg-theme-light p-2 border border-gray-400 rounded-full flex justify-center items-center dark:bg-darkmode-theme-light hover:bg-primary hover:text-white;
+      
+     
+    }
+  }
+}
+
 
 // content style
 .content {

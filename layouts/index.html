@@ -219,8 +219,11 @@
           <div
             class="col-12 md:col-6 p-8 relative bg-[#dbdbdb] dark:bg-[#202020] overflow-hidden mt-4 md:mt-0"
           >
-            {{$shap := "/images/union-shap.png"}} 
-            {{ partial "image" (dict "Src" $shap "Alt" "highlight image" "Class" "absolute top-3 right-0 width-full h-full ") }}
+            {{$shap := "/images/union-shap.png"}}
+            <!-- shap -->
+            {{ partial "image" (dict "Src" $shap "Alt" "highlight image" "Class"
+            "absolute top-3 right-0 width-full h-full ") }}
+            <!-- shap -->
             <span>
               <svg
                 width="48"
@@ -276,37 +279,43 @@
         "w-full") }}
       </div>
       <div
-      class="col-12 xl:col-8  border-l border-l-border dark:border-darkmode-border pl-12"
-    >
-      {{ $total := len .company_features }}
-      {{ range $index, $feature := .company_features }}
-      <div
-        class="row 
+        class="col-12 xl:col-8 border-l border-l-border dark:border-darkmode-border pl-12"
+      >
+        {{ $total := len .company_features }} {{ range $index, $feature :=
+        .company_features }}
+        <div
+          class="row 
          {{ if eq $index 0 }}pb-10{{ end }} 
         {{ if ne (add $index 1) $total }}border-b border-b-border dark:border-darkmode-border{{ end }} 
         {{ if not (eq $index 0) }}py-10{{ end }} 
         {{ if eq (add $index 1) $total }}pb-0{{ end }}"
-      >
-        <div class="col-4 md:col-6 p-0">
-          <h3 class="uppercase text-xl md:text-2xl md:w-7/12">{{ $feature.title }}</h3>
+        >
+          <div class="col-4 md:col-6 p-0">
+            <h3 class="uppercase text-xl md:text-2xl md:w-7/12">
+              {{ $feature.title }}
+            </h3>
+          </div>
+          <div class="col-8 md:col-6">
+            <p class="md:text-lg font-light text-light dark:text-dark-gray">
+              {{ $feature.content }}
+            </p>
+            {{ if $feature.button.enable }}
+            <a
+              href="{{ $feature.button.link }}"
+              class="flex items-center gap-3 mt-4"
+            >
+              <span class="uppercase text-sm">
+                {{ $feature.button.label }}
+              </span>
+              <span class="navigation-button-icon">
+                <i class="fa fa-arrow-right text-xs"></i>
+              </span>
+            </a>
+            {{ end }}
+          </div>
         </div>
-        <div class="col-8 md:col-6">
-          <p class="md:text-lg font-light text-light dark:text-dark-gray">
-            {{ $feature.content }}
-          </p>
-          {{ if $feature.button.enable }}
-          <a href="{{ $feature.button.link }}" class="flex items-center gap-3 mt-4">
-            <span class="uppercase text-sm"> {{ $feature.button.label }} </span>
-            <span class="navigation-button-icon">
-              <i class="fa fa-arrow-right text-xs"></i>
-            </span>
-          </a>
-          {{ end }}
-        </div>
+        {{ end }}
       </div>
-      {{ end }}
-    </div>
-    
     </div>
   </div>
 </section>
@@ -315,71 +324,54 @@
 
 <!-- Tickets section start -->
 {{ with site.GetPage "get-tickets/_index" }}
-<section>
-
-  {{ partial "components/tickets.html" . }}
-</section>
+<section>{{ partial "components/tickets.html" . }}</section>
 <!-- Tickets section end -->
 {{end}}
 
-<!-- Testimonials -->
-{{ with site.GetPage "sections/testimonial" }} {{ if .Params.enable }}
-<section class="section">
+<!-- Speakers section start -->
+{{ with site.GetPage "speakers/_index" }}
+<section>
   <div class="container">
-    <div class="row">
-      <div class="md:col-10 lg:col-8 xl:col-6 mx-auto mb-12 text-center">
-        <h2 class="mb-4">{{ .Title | markdownify }}</h2>
-        <p>{{ .Params.description | markdownify }}</p>
+    <!-- Title -->
+    <div class="row pt-16 pb-14">
+      <div class="col-12 xl:col-4 xl:pr-10 text-center xl:text-left mb-10 xl:mb-0 flex flex-col justify-center xl:justify-stretch items-center xl:items-stretch">
+        <h1 class="text-5xl md:text-7xl uppercase mb-5">{{ .Title }}</h1>
+        <p class="text-lg font-light text-dark-gray mb-10">
+          {{.Params.description}}
+        </p>
+        {{ if .Params.button.enable }}
+        <a
+          class="flex gap-x-3 items-center"
+          href="{{ .Params.button.link | absURL }}"
+        >
+          <span class="uppercase text-sm"> {{ .Params.button.label }} </span>
+          <span class="navigation-button-icon">
+            <i class="fa fa-arrow-right text-xs"></i>
+          </span>
+        </a>
+        {{ end }}
       </div>
-      <div class="col-12">
-        <div class="swiper testimonial-slider">
-          <div class="swiper-wrapper">
-            {{ range .Params.testimonials }}
-            <div class="swiper-slide">
-              <div
-                class="bg-theme-light dark:bg-darkmode-theme-light rounded-lg px-7 py-10"
-              >
-                <div class="text-dark dark:text-white">
-                  <svg
-                    width="33"
-                    height="20"
-                    viewBox="0 0 33 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M1.28375 19.41L0.79375 18.64C1.21375 17.0067 1.75042 15.07 2.40375 12.83C3.05708 10.5433 3.75708 8.28 4.50375 6.04C5.29708 3.75333 6.06708 1.77 6.81375 0.0899959H15.3538C14.9338 2.09666 14.4904 4.26667 14.0238 6.6C13.5571 8.88666 13.1371 11.15 12.7638 13.39C12.4371 15.5833 12.1571 17.59 11.9238 19.41H1.28375ZM31.69 0.0899959L32.18 0.859998C31.76 2.54 31.2233 4.5 30.57 6.74C29.9167 8.98 29.2167 11.2433 28.47 13.53C27.7233 15.77 26.9533 17.73 26.16 19.41H17.69C18.0167 17.9167 18.3433 16.33 18.67 14.65C18.9967 12.9233 19.3 11.22 19.58 9.54C19.9067 7.81333 20.1867 6.15667 20.42 4.57C20.7 2.93666 20.91 1.44333 21.05 0.0899959H31.69Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </div>
-                <blockquote class="mt-8">
-                  {{ .content | markdownify }}
-                </blockquote>
-                <div class="mt-11 flex items-center">
-                  <div class="text-dark dark:text-white">
-                    {{ partial "image" (dict "Src" .avatar "Size" "50x50"
-                    "Class" "rounded-full" "Alt" .name) }}
-                  </div>
-                  <div class="ml-4">
-                    <h3 class="h5 font-primary font-semibold">{{ .name }}</h3>
-                    <p class="text-dark dark:text-white">
-                      {{ .designation | markdownify }}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {{ end }}
-          </div>
+      <div class="col-12 xl:col-8">
+        <div class="row xl:border-l xl:border-l-border dark:border-darkmode-border px-7">
+          {{ range $index, $page := .Pages }}
           <div
-            class="testimonial-slider-pagination mt-9 flex items-center justify-center text-center"
-          ></div>
+            class="col-12 lg:col-6 mb-10
+            {{ if lt $index 2 }}lg:border-b lg:border-b-border dark:border-darkmode-border{{ end }} pb-10
+           "
+          >
+            <div class="{{ if or (eq $index 0) (eq $index 2) }}lg:border-r lg:border-r-border dark:border-darkmode-border{{ end }} pr-7">
+              {{ partial "components/speaker-card.html" $page }}
+            </div>
+          </div>
+          {{ end }}
         </div>
+        
+        
       </div>
     </div>
   </div>
 </section>
-{{ end }} {{ end }}
-<!-- /Testimonials -->
 {{ end }}
+<!-- Speakers section end -->
+
+{{end}}

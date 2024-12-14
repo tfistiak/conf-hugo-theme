@@ -1,0 +1,17 @@
+<div class="speaker-card">
+  {{ partial "image" (dict "Src" .Params.image "Alt" .Title "Class" "w-full rounded" ) }}
+
+  <div class="speaker-card-content">
+    <h3>{{ .Title }}</h3>
+    <div class="other">
+      <p>{{.Params.position}}</p>
+      <div class="icons">
+        {{ range .Params.social }}
+        <a href="{{ .link }}" target="_blank">
+          <i class="{{ .icon }}"></i>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>
