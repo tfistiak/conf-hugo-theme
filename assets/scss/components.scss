@@ -127,7 +127,7 @@ main {
   .other{
     @apply flex justify-between ;
     p{
-      @apply  font-light text-dark;}
+      @apply  font-light text-dark dark:text-darkmode-text;}
   }
   .icons{
     @apply flex space-x-4;

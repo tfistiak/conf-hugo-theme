@@ -374,4 +374,36 @@
 {{ end }}
 <!-- Speakers section end -->
 
+
+<!-- Sponsors section start -->
+{{ with site.GetPage "our-sponsors/_index" }}
+<section>
+  <div class="container">
+   <div class="section-title mb-10">
+    <h1>{{ .Title }}</h1>
+    {{ if .Params.button.enable }}
+    <a
+      class="flex gap-x-3 items-center"
+      href="{{ .Params.button.link | absURL }}"
+    >
+      <span class="uppercase text-sm"> {{ .Params.button.label }} </span>
+      <span class="navigation-button-icon">
+        <i class="fa fa-arrow-right text-xs"></i>
+      </span>
+    </a>
+    {{ end }}
+   </div>
+   <div class="row mb-10">
+    {{ range .Params.company_image }}
+    <div class="col-4 md:col-3 lg:col-2 g-4">
+      {{partial "components/sponsors-logo.html" .}}
+    </div>
+    {{ end }}
+    
+   </div>
+  </div>
+</section>
+<!-- Sponsors section end -->
+{{ end }}
+
 {{end}}

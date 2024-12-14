@@ -2,7 +2,9 @@
   {{ partial "image" (dict "Src" .Params.image "Alt" .Title "Class" "w-full rounded" ) }}
 
   <div class="speaker-card-content">
-    <h3>{{ .Title }}</h3>
+    <h3>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </h3>
     <div class="other">
       <p>{{.Params.position}}</p>
       <div class="icons">
