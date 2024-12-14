@@ -313,6 +313,15 @@
 {{ end }}
 <!-- /Features section end -->
 
+<!-- Tickets section start -->
+{{ with site.GetPage "get-tickets/_index" }}
+<section>
+
+  {{ partial "components/tickets.html" . }}
+</section>
+<!-- Tickets section end -->
+{{end}}
+
 <!-- Testimonials -->
 {{ with site.GetPage "sections/testimonial" }} {{ if .Params.enable }}
 <section class="section">

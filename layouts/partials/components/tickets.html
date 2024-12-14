@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="section-title">
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Params.description | markdownify }}</p>
+  </div>
+  <!--  All Tickets pass -->
+  <div
+  class="row py-14 border-b border-b-border dark:border-darkmode-border gap-y-5"
+>
+  {{ $total := len .Params.ticket_items }}
+  {{ range $index, $ticket := .Params.ticket_items }}
+  <div
+    class="col-12 lg:col-6 xl:col-4 border-r border-r-border dark:border-darkmode-border {{ if eq (add $index 1) $total }}border-b-0{{ end }}"
+  >
+    <div
+      class="ticket-item bg-[{{ $ticket.color }}] dark:bg-[{{ $ticket.color_dark }}] text-[{{ $ticket.color_dark }}] dark:text-[{{ $ticket.color }}]"
+    >
+      <div class="ticket-item-header">
+        <h3>{{ $ticket.title }}</h3>
+        <p>{{ $ticket.description }}</p>
+      </div>
+      <div class="ticket-item-body">
+        <h2>
+          ${{ $ticket.price -}}
+          <span>/ {{ $ticket.person }} person</span>
+        </h2>
+        <ul>
+          {{ range $ticket.ticket_feature }}
+          <li>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g opacity="0.5" clip-path="url(#clip0_1_768)">
+                <path
+                  d="M3.125 11.25L7.5 15.625L17.5 5.625"
+                  stroke="#222222"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_1_768">
+                  <rect width="20" height="20" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+            {{ .item }}
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      <div class="ticket-item-footer">
+        {{ if eq $ticket.button.enable true }}
+        <a href="{{ $ticket.button_link }}" class="{{ $ticket.button.classes }}"
+          >{{ $ticket.button.label }}</a
+        >
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  {{ end }}
+</div>
+
+</div>

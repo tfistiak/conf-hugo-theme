@@ -30,7 +30,7 @@ main {
   li {
     @apply inline-block;
     a {
-      @apply  dark:text-white flex h-7 w-7 items-center justify-center rounded text-center leading-9 text-dark;
+      @apply dark:text-white flex h-7 w-7 items-center justify-center rounded text-center leading-9 text-dark;
       svg {
         @apply h-5 w-5;
       }
@@ -44,13 +44,13 @@ main {
     @apply inline-block transition-all duration-500;
     :hover {
       @apply bg-primary dark:bg-darkmode-primary;
-      a{
+      a {
         @apply text-white;
       }
     }
     a {
-      @apply  dark:text-white flex h-12 w-12 items-center justify-center rounded-full text-center leading-9 text-dark border border-border dark:border-darkmode-border border-opacity-20;
-     
+      @apply dark:text-white flex h-12 w-12 items-center justify-center rounded-full text-center leading-9 text-dark border border-border dark:border-darkmode-border border-opacity-20;
+
       svg {
         @apply h-6 w-6;
       }
@@ -68,13 +68,50 @@ main {
 }
 
 // section title
-.section-title{
+.section-title {
   @apply flex flex-col xl:flex-row justify-center xl:justify-between items-center xl:items-end pt-16 pb-14 border-b border-b-border dark:border-darkmode-border;
-  h1{
+  h1 {
     @apply text-5xl md:text-7xl uppercase xl:w-3/6 text-center xl:text-left mb-5 xl:mb-0;
   }
-  p{
-    @apply text-lg font-thin xl:w-3/12 text-dark-gray text-center xl:text-right;
+  p {
+    @apply text-lg font-thin xl:w-4/12 text-dark-gray text-center xl:text-right;
+  }
+}
+
+// ticket item
+.ticket-item {
+  @apply rounded-sm p-8;
+  .ticket-item-header {
+    @apply flex flex-col;
+    h3 {
+      @apply text-2xl uppercase mb-2;
+    }
+    p {
+      @apply text-lg font-thin;
+    }
+  }
+  .ticket-item-body{
+    @apply flex flex-col;
+    h2{
+      @apply text-7xl uppercase my-10 font-light;
+      span{
+        @apply text-sm font-light;
+      }
+    }
+    ul{
+      li{
+        @apply flex items-center mb-2 text-lg font-light;
+        svg{
+          @apply mr-2;
+        }
+      }
+    }
+  }
+  .ticket-item-footer{
+    @apply flex justify-center items-center mt-10;
+    a{
+      @apply rounded-full w-full py-4 text-center font-normal text-sm uppercase;
+    }
   }
 }
 
