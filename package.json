@@ -1,6 +1,6 @@
 {
   "name": "conf-theme",
-  "description": "hugo tailwindcss boilerplate",
+  "description": "hugo tailwindcss theme",
   "version": "1.18.0",
   "license": "MIT",
   "author": "zeon.studio",

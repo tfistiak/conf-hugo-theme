@@ -83,4 +83,9 @@ input#nav-toggle:checked ~ #nav-menu {
 // nav btton icon
 .navigation-button-icon {
   @apply bg-darkmode-theme-light dark:bg-darkmode-theme-dark h-6 w-6 rounded-full flex items-center justify-center text-white dark:text-darkmode-light;
+  transition: all 0.5s;
+  
+}
+.navigation-button-icon:hover{
+  @apply bg-primary;
 }

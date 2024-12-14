@@ -216,7 +216,11 @@
 
           <!-- highlight -->
           {{ with .feature_highlight }}
-          <div class="col-12 md:col-6 p-8">
+          <div
+            class="col-12 md:col-6 p-8 relative bg-[#dbdbdb] dark:bg-[#202020] overflow-hidden mt-4 md:mt-0"
+          >
+            {{$shap := "/images/union-shap.png"}} 
+            {{ partial "image" (dict "Src" $shap "Alt" "highlight image" "Class" "absolute top-3 right-0 width-full h-full ") }}
             <span>
               <svg
                 width="48"
@@ -238,7 +242,7 @@
                 </p>
               </div>
               <div
-                class="bg-dark text-theme-light dark:bg-primary rounded-full p-6 flex flex-col justify-center items-center"
+                class="bg-dark text-theme-light dark:bg-primary rounded-full p-6 flex flex-col justify-center items-center relative z-10"
               >
                 <span class="text-xs uppercase">Joined</span>
                 <b class="text-2xl uppercase font-semibold">{{.joined}}</b>
@@ -253,22 +257,61 @@
   </div>
 </section>
 {{ end }}
-<!-- /Banner -->
+<!-- Banner -->
 
-<!-- Features -->
+<!-- Features section start -->
 {{ with.Params.features }}
-<section >
+<section>
   <div class="container">
-    <div>
+    <!-- Title -->
+    <div class="section-title">
       <h1>{{ .title }}</h1>
-      <p>
-        {{.description}}
-      </p>
+      <p>{{.description}}</p>
+    </div>
+
+    <!-- Features -->
+    <div class="row py-14">
+      <div class="col-12 xl:col-4 mb-10 xl:mb-0">
+        {{ partial "image" (dict "Src" .image "Alt" "feature image" "Class"
+        "w-full") }}
+      </div>
+      <div
+      class="col-12 xl:col-8  border-l border-l-border dark:border-darkmode-border pl-12"
+    >
+      {{ $total := len .company_features }}
+      {{ range $index, $feature := .company_features }}
+      <div
+        class="row 
+         {{ if eq $index 0 }}pb-10{{ end }} 
+        {{ if ne (add $index 1) $total }}border-b border-b-border dark:border-darkmode-border{{ end }} 
+        {{ if not (eq $index 0) }}py-10{{ end }} 
+        {{ if eq (add $index 1) $total }}pb-0{{ end }}"
+      >
+        <div class="col-4 md:col-6 p-0">
+          <h3 class="uppercase text-xl md:text-2xl md:w-7/12">{{ $feature.title }}</h3>
+        </div>
+        <div class="col-8 md:col-6">
+          <p class="md:text-lg font-light text-light dark:text-dark-gray">
+            {{ $feature.content }}
+          </p>
+          {{ if $feature.button.enable }}
+          <a href="{{ $feature.button.link }}" class="flex items-center gap-3 mt-4">
+            <span class="uppercase text-sm"> {{ $feature.button.label }} </span>
+            <span class="navigation-button-icon">
+              <i class="fa fa-arrow-right text-xs"></i>
+            </span>
+          </a>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    
     </div>
   </div>
 </section>
 {{ end }}
-<!-- /Features -->
+<!-- /Features section end -->
 
 <!-- Testimonials -->
 {{ with site.GetPage "sections/testimonial" }} {{ if .Params.enable }}

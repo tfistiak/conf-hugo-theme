@@ -42,45 +42,33 @@ banner:
 features:
   title: "04 things to expect in Conf"
   description: "Join us for an as we unveil the most exciting highlights at our upcoming designer event."
-  image: ""
+  image: "/images/feature_image.png"
   company_features:
-    - title: "What's Included in Hugoplate"
-      image: "/images/service-1.png"
-      content: "Hugoplate is a comprehensive starter template that includes everything you need to get started with your Hugo project. What's Included in Hugoplate"
-      bulletpoints:
-        - "10+ Pre-build pages"
-        - "95+ Google Pagespeed Score"
-        - "Build with Hugo and TailwindCSS for easy and customizable styling"
-        - "Fully responsive on all devices"
-        - "SEO-optimized for better search engine rankings"
-        - "**Open-source and free** for personal and commercial use"
-      button:
-        enable: false
-        label: "Get Started Now"
-        link: "#"
-
-    - title: "Discover the Key Features Of Hugo"
-      image: "/images/service-2.png"
-      content: "Hugo is an all-in-one web framework for building fast, content-focused websites. It offers a range of exciting features for developers and website creators. Some of the key features are:"
-      bulletpoints:
-        - "Zero JS, by default: No JavaScript runtime overhead to slow you down."
-        - "Customizable: Tailwind, MDX, and 100+ other integrations to choose from."
-        - "UI-agnostic: Supports React, Preact, Svelte, Vue, Solid, Lit and more."
+    - title: "Showcase of Innovative Work"
+      content: "Expect to see stunning portfolios  case studies. Designers will present their latest projects, from sleek app interfaces to web experience."
       button:
         enable: true
-        label: "Get Started Now"
-        link: "https://github.com/zeon-studio/hugoplate"
+        label: "learn more"
+        link: "/events"
 
-    - title: "The Top Reasons to Choose Hugo for Your Hugo Project"
-      image: "/images/service-3.png"
-      content: "With Hugo, you can build modern and content-focused websites without sacrificing performance or ease of use."
-      bulletpoints:
-        - "Instantly load static sites for better user experience and SEO."
-        - "Intuitive syntax and support for popular frameworks make learning and using Hugo a breeze."
-        - "Use any front-end library or framework, or build custom components, for any project size."
-        - "Built on cutting-edge technology to keep your projects up-to-date with the latest web standards."
+    - title: "Networking Opportunities"
+      content: "From casual chats to speed-networking sessions, you’ll meet a diverse group of creatives industry leaders. It’s the perfect chance to share ideas."
       button:
-        enable: false
-        label: ""
-        link: ""
+        enable: true
+        label: "learn more"
+        link: "/events"
+
+    - title: "Industry Panel Discussions"
+      content: "Leaders in the field share insights on emerging trends, challenges, and the future of digital design. These candid discussions to valuable knowledge."
+      button:
+        enable: true
+        label: "learn more"
+        link: "/events"
+
+    - title: "Design Challenges and Contests"
+      content: "Get ready for live design competitions where participants can flex their creative muscles. Whether it’s a logo quick UX problem-solving."
+      button:
+        enable: true
+        label: "learn more"
+        link: "/events"
 ---
